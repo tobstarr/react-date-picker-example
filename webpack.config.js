@@ -4,26 +4,15 @@ module.exports = {
     filename: "./dist/bundle.js"
   },
   devtool: "source-map",
+  resolve: {
+    // Add '.ts' and '.tsx' as resolvable extensions.
+    extensions: [".ts", ".tsx", ".js", ".json"]
+  },
   module: {
     rules: [
-      {
-        test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
-      },
-      {
-        test: /\.tsx$/,
-        use: ["ts-loader"]
-      },
-      {
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["react"]
-          }
-        }
-      }
+      { test: /\.css$/, use: ["style-loader", "css-loader"] },
+      { test: /\.tsx$/, use: ["awesome-typescript-loader"] },
+      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
     ]
   }
-}
+};

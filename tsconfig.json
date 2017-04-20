@@ -5,7 +5,12 @@
         "noImplicitAny": true,
         "module": "commonjs",
         "target": "es5",
-        "jsx": "react"
+        "jsx": "react",
+        "allowJs": true,
+        "types": [
+          "node",
+          "jest"
+        ]
     },
     "files": [
         "./app.tsx"
